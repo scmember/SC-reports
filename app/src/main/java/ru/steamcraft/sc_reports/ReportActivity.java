@@ -1,6 +1,8 @@
 package ru.steamcraft.sc_reports;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +13,14 @@ public class ReportActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
+        FragmentManager _fragmentManager = getFragmentManager();
+        Fragment _fragment = _fragmentManager.findFragmentById(R.id.fragmentContainer);
+        if (_fragment == null) {
+            _fragment = new ReportFragment();
+            _fragmentManager.beginTransaction()
+                    .add(R.id.fragmentContainer, _fragment)
+                    .commit();
+        }
     }
 
     @Override
