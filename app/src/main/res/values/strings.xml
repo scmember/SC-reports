@@ -6,4 +6,5 @@
     <string name="report_title_label">Title</string>
     <string name="report_details_label">Details</string>
     <string name="report_saved_label">Saved?</string>
+    <string name="reports_title">Reports</string>
 </resources>
