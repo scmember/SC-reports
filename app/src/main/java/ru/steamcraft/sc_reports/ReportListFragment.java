@@ -1,6 +1,6 @@
 package ru.steamcraft.sc_reports;
 
-import android.app.ListFragment;
+import android.support.v4.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,7 +38,7 @@ public class ReportListFragment extends ListFragment{
     public void onListItemClick(ListView l, View v, int position, long id) {
         Report _report = ((ReportAdapter)getListAdapter()).getItem(position);
         Log.d(TAG, _report.getTitle() + " was clicked");
-        Intent _intent = new Intent(getActivity(), ReportActivity.class);
+        Intent _intent = new Intent(getActivity(), ReportPagerActivity.class);
         _intent.putExtra(ReportFragment.EXTRA_REPORT_ID, _report.getId());
         startActivity(_intent);
     }

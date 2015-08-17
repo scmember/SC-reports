@@ -5,9 +5,6 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.UUID;
 
-/**
- * Created by scmember on 14.08.2015.
- */
 public class ReportLab {
     private static ReportLab sReportLab;
     private Context mAppContext;
@@ -22,7 +19,7 @@ public class ReportLab {
 
     private ReportLab(Context newAppContext) {
         mAppContext = newAppContext;
-        mReports = new ArrayList<Report>();
+        mReports = new ArrayList<>();
         for(int i=0; i<100; i++){
             Report _report = new Report();
             _report.setTitle("Report #" + i);

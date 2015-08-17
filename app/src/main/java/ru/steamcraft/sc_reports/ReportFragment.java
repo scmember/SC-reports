@@ -1,6 +1,6 @@
 package ru.steamcraft.sc_reports;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -31,11 +31,11 @@ public class ReportFragment extends Fragment {
      * @return A new instance of fragment ReportFragment.
      */
     public static ReportFragment newInstance(UUID reportId) {
-        ReportFragment fragment = new ReportFragment();
+        ReportFragment _fragment = new ReportFragment();
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_REPORT_ID, reportId);
-        fragment.setArguments(args);
-        return fragment;
+        _fragment.setArguments(args);
+        return _fragment;
     }
 
     public ReportFragment() {
@@ -45,7 +45,7 @@ public class ReportFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID _reportId = (UUID)getActivity().getIntent().getSerializableExtra(EXTRA_REPORT_ID);
+        UUID _reportId = (UUID)getArguments().getSerializable(EXTRA_REPORT_ID);
         mReport = ReportLab.get(getActivity()).getReport(_reportId);
     }
 

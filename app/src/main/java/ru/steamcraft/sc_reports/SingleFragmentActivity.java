@@ -1,21 +1,18 @@
 package ru.steamcraft.sc_reports;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by scmember on 14.08.2015.
- */
-public abstract class SingleFragmentActivity extends Activity {
+public abstract class SingleFragmentActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        FragmentManager _fragmentManager = getFragmentManager();
+        FragmentManager _fragmentManager = getSupportFragmentManager();
         Fragment _fragment = _fragmentManager.findFragmentById(R.id.fragment_container);
         if (_fragment == null) {
             _fragment = createFragment();

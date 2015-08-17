@@ -3,9 +3,6 @@ package ru.steamcraft.sc_reports;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by scmember on 11.08.2015.
- */
 public class Report {
 
     private UUID mId;
