@@ -1,7 +1,7 @@
 package ru.steamcraft.sc_reports;
 
 import android.app.ListFragment;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by scmember on 14.08.2015.
- */
 public class ReportListFragment extends ListFragment{
     private static final String TAG = "ReportListFragment";
 
@@ -32,10 +29,18 @@ public class ReportListFragment extends ListFragment{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((ReportAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
+    @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Report _report = ((ReportAdapter)getListAdapter()).getItem(position);
         Log.d(TAG, _report.getTitle() + " was clicked");
-        //super.onListItemClick(l, v, position, id);
+        Intent _intent = new Intent(getActivity(), ReportActivity.class);
+        _intent.putExtra(ReportFragment.EXTRA_REPORT_ID, _report.getId());
+        startActivity(_intent);
     }
 
     private class ReportAdapter extends ArrayAdapter<Report>{
